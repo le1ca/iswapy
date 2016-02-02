@@ -1,0 +1,52 @@
+{
+        "acquisition": {
+                "module": "jpeg",
+                "options": {
+                        "name": "##argument2##"
+                }
+        },
+        
+        "processing": [
+                {
+                        "module": "rotation",
+                        "options": {
+                                "amount": 270
+                        }
+                },
+                {
+                        "module": "sigmoidal_contrast",
+                        "options": {
+                                "negative": true,
+                                "cutoff": 0.5,
+                                "gain": 10
+                        }
+                },
+                {
+                        "module": "jpeg",
+                        "options": {
+                                "name": "strip%04d.jpeg",
+                                "quality": 80
+                        }
+                },
+                {
+                        "module": "split_frames",
+                        "options": {
+                        
+                        }
+                },
+                {
+                        "module": "scale",
+                        "options": {
+                                "mode": "keep-ratio",
+                                "width": 1000
+                        }
+                },
+                {
+                        "module": "jpeg",
+                        "options": {
+                                "name": "frame%04d.jpeg",
+                                "quality": 90
+                        }
+                }
+        ]
+}
