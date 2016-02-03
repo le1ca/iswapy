@@ -17,7 +17,7 @@
                         "module": "sigmoidal_contrast",
                         "options": {
                                 "negative": true,
-                                "cutoff": 0.5,
+                                "cutoff": 0.25,
                                 "gain": 10
                         }
                 },
@@ -29,9 +29,19 @@
                         }
                 },
                 {
+                        "module": "trim",
+                        "options": {
+                                "top":    30,
+                                "bottom": 30,
+                                "left":   490
+                        }
+                },
+                {
                         "module": "split_frames",
                         "options": {
-                        
+                                "width": 3440,
+                                "space": 160,
+                                "buffer": 40
                         }
                 },
                 {
