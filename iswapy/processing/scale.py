@@ -14,14 +14,16 @@ class scale (processing_cls):
                         y, x = img.shape
                         if self._width == None:
                                 factor = 1.0 * y / self._height
-                                self._width  = round(x / factor)
+                                height = self._height
+                                width  = round(x / factor)
                         elif self._height == None:
                                 factor = 1.0 * x / self._width
-                                self._height = round(y / factor)
+                                width = self._width
+                                height = round(y / factor)
                         else:
                                 raise ValueError("keep-ratio mode needs either height or width to be specified")
                 else:
                         raise ValueError("unknown scale mode %s" % self._mode)
-                img = skimage.transform.resize(img, (self._height, self._width) )
-                print("Scaled to %dx%d" % (self._width, self._height))
+                img = skimage.transform.resize(img, (height, width) )
+                print("Scaled to %dx%d" % (width, height))
                 return [img]
